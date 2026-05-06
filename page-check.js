@@ -26,6 +26,7 @@ const mustIncludeHtml = [
   'data-result-subtitle',
   'data-result-note-title',
   'assets/nails/lalaland/v1/R1.png',
+  'assets/samples/hero-cover.png',
 ];
 
 mustIncludeHtml.forEach((needle) => assert.ok(html.includes(needle), `${needle} should be in HTML`));
@@ -71,6 +72,7 @@ assert.doesNotMatch(studioPanelBlock, /margin-top:\s*-/);
   /loadSampleInspiration/,
   /sampleUploadButtons/,
   /assets\/samples\/lalaland-poster\.jpg/,
+  /assets\/samples\/hero-cover\.png/,
   /renderPopMoodVariant/,
   /renderSet/,
   /swapItems/,

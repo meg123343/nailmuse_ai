@@ -25,6 +25,7 @@ const uploadInput = document.getElementById('inspirationUpload');
 const uploadPreview = document.getElementById('uploadPreview');
 const uploadHint = document.getElementById('uploadHint');
 const sampleUploadButtons = document.querySelectorAll('[data-sample-upload]');
+const heroCoverSrc = 'assets/samples/hero-cover.png';
 const lalalandSampleSrc = 'assets/samples/lalaland-poster.jpg';
 const lockedTips = new Set();
 const slotIds = ['R1', 'R2', 'R3', 'R4', 'R5', 'L1', 'L2', 'L3', 'L4', 'L5'];
@@ -281,3 +282,4 @@ uploadInput?.addEventListener('change', () => {
 });
 
 renderPopMoodVariant(popVariantIndex);
+if (uploadPreview) uploadPreview.src = heroCoverSrc;
