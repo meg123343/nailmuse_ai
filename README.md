@@ -1,0 +1,45 @@
+# Nail Muse AI
+
+喜欢的万物，存在指尖。
+
+Nail Muse AI 是一个面向美甲灵感 DIY 的 AI 视觉互动 Demo。用户可以上传喜欢的图片，也可以直接点击页面里的 La La Land 样例，模拟从“灵感图”到“10 片甲片设计稿 + 色卡 + 可编辑槽位”的生成过程。
+
+## Demo 功能
+
+- 上传灵感图，模拟 2 秒 AI 生成中状态。
+- 使用内置 La La Land 样例，一键跑通完整流程。
+- 选择长度、甲型和质感标签。
+- 展示 10 个固定槽位甲片与色卡。
+- 点击对号锁定喜欢的甲片。
+- 重新生成时保留已锁定甲片，只替换其他槽位。
+- 支持调整甲片顺序。
+
+## 本地打开
+
+这个项目是纯静态网页，不需要安装依赖。
+
+直接双击 `index.html`，或用本地静态服务打开都可以。
+
+## GitHub Pages 部署
+
+仓库推送到 GitHub 后，进入：
+
+`Settings` → `Pages` → `Build and deployment`
+
+选择：
+
+- Source: `Deploy from a branch`
+- Branch: `main`
+- Folder: `/ (root)`
+
+保存后等待 1-2 分钟，页面会生成访问链接：
+
+`https://meg123343.github.io/nailmuse_ai/`
+
+## 说明文档
+
+参赛说明文档与录屏稿在：
+
+`docs/submission/`
+
+其中 `Nail_Muse_AI_说明文档.pdf` 可作为说明文档提交。

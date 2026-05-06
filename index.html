@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nail Muse AI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-panel" id="hero">
+      <img class="hero-art" src="kling_20260503_作品_横屏_16_9_AI_3482_0.png" alt="插画风美甲灵感海报">
+      <div class="hero-shade"></div>
+      <header class="topbar">
+        <div class="brand-mark">NAIL MUSE AI</div>
+        <nav class="nav-tabs" aria-label="页面导航">
+          <a href="#hero">灵感入口</a>
+          <a href="#studio">开始设计</a>
+          <a href="#result">美甲稿</a>
+        </nav>
+      </header>
+
+      <div class="hero-copy">
+        <p class="eyebrow">AI NAIL DESIGN STUDIO</p>
+        <h1><span>喜欢的万物，</span><span>存在指尖</span></h1>
+        <p class="hero-text">
+          <span>把一张图、一首歌、一部电影里的喜欢，变成一套独属于你的美甲设计稿</span>
+          <span>先丢进灵感，看看它会长成什么样</span>
+        </p>
+        <div class="hero-actions">
+          <button class="primary-action" type="button" data-scroll-target="studio">上传灵感图</button>
+          <button class="secondary-action" type="button" data-scroll-target="studio" data-sample-upload>试用一张照片</button>
+        </div>
+      </div>
+
+      <aside class="hero-ticket" aria-label="美甲方案预览">
+        <span>PREVIEW</span>
+        <strong>10 片甲片 + 色卡</strong>
+        <small>简洁、可做、能沟通</small>
+      </aside>
+    </section>
+
+    <div class="transition-band" aria-hidden="true"></div>
+
+    <section class="studio-panel is-waiting" id="studio">
+      <div class="section-title">
+        <p class="eyebrow">UPLOAD YOUR MOOD</p>
+        <h2>把喜欢的东西，先交给这里</h2>
+      </div>
+
+      <div class="studio-grid">
+        <aside class="control-board">
+          <label class="upload-card" data-upload-trigger>
+            <input id="inspirationUpload" type="file" accept="image/*">
+            <div class="upload-preview">
+              <img id="uploadPreview" src="kling_20260503_作品_横屏_16_9_AI_3482_0.png" alt="灵感图预览">
+            </div>
+            <div>
+              <span class="board-label">第一步</span>
+              <h3>上传灵感图</h3>
+              <p id="uploadHint">可以是专辑封面、电影截图、穿搭、风景，或者某个突然击中你的颜色。</p>
+            </div>
+          </label>
+
+          <div class="tag-group">
+            <span class="board-label">想要的长度</span>
+            <div class="tag-row" data-filter-group="length">
+              <button class="choice is-active" type="button">短甲</button>
+              <button class="choice" type="button">中长</button>
+              <button class="choice" type="button">长甲</button>
+            </div>
+          </div>
+
+          <div class="tag-group">
+            <span class="board-label">适合的甲型</span>
+            <div class="tag-row" data-filter-group="shape">
+              <button class="choice is-active" type="button" data-shape="oval">椭圆</button>
+              <button class="choice" type="button" data-shape="almond">杏仁</button>
+              <button class="choice" type="button" data-shape="square">方圆</button>
+              <button class="choice" type="button" data-shape="ballerina">芭蕾</button>
+            </div>
+          </div>
+
+          <div class="tag-group">
+            <span class="board-label">喜欢的质感</span>
+            <div class="tag-row" data-filter-group="finish">
+              <button class="choice is-active" type="button">亮面</button>
+              <button class="choice" type="button">冰透</button>
+              <button class="choice" type="button">磨砂</button>
+              <button class="choice" type="button">磁吸光</button>
+            </div>
+          </div>
+
+          <label class="prompt-box">
+            <span class="board-label">再补一句你的想法</span>
+            <textarea rows="4" placeholder="例如：想要日常一点，不要太夸张，保留图片里的蓝色和橘色。"></textarea>
+          </label>
+
+          <button class="generate-button" type="button" id="drawCard">生成我的美甲稿</button>
+          <button class="sample-button" type="button" data-sample-upload>没有图片？先试用一张照片</button>
+          <p class="loading-copy" id="loadingCopy">生成中：正在提取色卡和图案...</p>
+        </aside>
+
+        <section class="design-sheet shape-oval" id="result" aria-label="生成的美甲设计稿">
+          <div class="result-placeholder">
+            <p class="eyebrow">START WITH A FAVORITE</p>
+            <h3>先给我一张你喜欢的图</h3>
+            <p>上传后，这里会展开一套 10 片甲片和色卡。你也可以先看一套基础示例，试试锁定单片、切换甲型、再重新抽。</p>
+            <button class="secondary-action" type="button" data-start-demo>先看基础示例</button>
+            <button class="secondary-action compact-action" type="button" data-sample-upload>试用一张照片</button>
+          </div>
+          <div class="result-content">
+          <div class="sheet-header">
+            <div>
+              <p class="eyebrow">YOUR NAIL SET</p>
+              <h3 data-result-title>Pop Mood Nail Set</h3>
+              <p class="sheet-subtitle" data-result-subtitle>先用一套基础样例，看看 10 个槽位、锁定和甲型切换怎么工作。</p>
+            </div>
+            <div class="finger-labels" aria-hidden="true">
+              <span>THUMB</span>
+              <span>INDEX</span>
+              <span>MIDDLE</span>
+              <span>RING</span>
+              <span>LITTLE</span>
+            </div>
+          </div>
+
+          <div class="nail-matrix">
+            <span class="hand-label">RIGHT</span>
+            <div class="nail-item" data-slot-id="R1">
+              <button class="lock-tip" type="button" aria-label="锁定这片">✓</button>
+              <div class="move-controls" aria-label="调整顺序">
+                <button class="move-tip" type="button" data-move="-1" aria-label="向前移动">‹</button>
+                <button class="move-tip" type="button" data-move="1" aria-label="向后移动">›</button>
+              </div>
+              <div class="nail-tip photo">
+                <img class="nail-art" src="assets/nails/lalaland/v1/R1.png" alt="R1 甲片">
+              </div>
+            </div>
+            <div class="nail-item" data-slot-id="R2">
+              <button class="lock-tip" type="button" aria-label="锁定这片">✓</button>
+              <div class="move-controls" aria-label="调整顺序">
+                <button class="move-tip" type="button" data-move="-1" aria-label="向前移动">‹</button>
+                <button class="move-tip" type="button" data-move="1" aria-label="向后移动">›</button>
+              </div>
+              <div class="nail-tip photo">
+                <img class="nail-art" src="assets/nails/lalaland/v1/R2.png" alt="R2 甲片">
+              </div>
+            </div>
+            <div class="nail-item" data-slot-id="R3">
+              <button class="lock-tip" type="button" aria-label="锁定这片">✓</button>
+              <div class="move-controls" aria-label="调整顺序">
+                <button class="move-tip" type="button" data-move="-1" aria-label="向前移动">‹</button>
+                <button class="move-tip" type="button" data-move="1" aria-label="向后移动">›</button>
+              </div>
+              <div class="nail-tip photo">
+                <img class="nail-art" src="assets/nails/lalaland/v1/R3.png" alt="R3 甲片">
+              </div>
+            </div>
+            <div class="nail-item" data-slot-id="R4">
+              <button class="lock-tip" type="button" aria-label="锁定这片">✓</button>
+              <div class="move-controls" aria-label="调整顺序">
+                <button class="move-tip" type="button" data-move="-1" aria-label="向前移动">‹</button>
+                <button class="move-tip" type="button" data-move="1" aria-label="向后移动">›</button>
+              </div>
+              <div class="nail-tip photo">
+                <img class="nail-art" src="assets/nails/lalaland/v1/R4.png" alt="R4 甲片">
+              </div>
+            </div>
+            <div class="nail-item" data-slot-id="R5">
+              <button class="lock-tip" type="button" aria-label="锁定这片">✓</button>
+              <div class="move-controls" aria-label="调整顺序">
+                <button class="move-tip" type="button" data-move="-1" aria-label="向前移动">‹</button>
+                <button class="move-tip" type="button" data-move="1" aria-label="向后移动">›</button>
+              </div>
+              <div class="nail-tip photo">
+                <img class="nail-art" src="assets/nails/lalaland/v1/R5.png" alt="R5 甲片">
+              </div>
+            </div>
+            <span class="hand-label">LEFT</span>
+            <div class="nail-item" data-slot-id="L1">
+              <button class="lock-tip" type="button" aria-label="锁定这片">✓</button>
+              <div class="move-controls" aria-label="调整顺序">
+                <button class="move-tip" type="button" data-move="-1" aria-label="向前移动">‹</button>
+                <button class="move-tip" type="button" data-move="1" aria-label="向后移动">›</button>
+              </div>
+              <div class="nail-tip photo">
+                <img class="nail-art" src="assets/nails/lalaland/v1/L1.png" alt="L1 甲片">
+              </div>
+            </div>
+            <div class="nail-item" data-slot-id="L2">
+              <button class="lock-tip" type="button" aria-label="锁定这片">✓</button>
+              <div class="move-controls" aria-label="调整顺序">
+                <button class="move-tip" type="button" data-move="-1" aria-label="向前移动">‹</button>
+                <button class="move-tip" type="button" data-move="1" aria-label="向后移动">›</button>
+              </div>
+              <div class="nail-tip photo">
+                <img class="nail-art" src="assets/nails/lalaland/v1/L2.png" alt="L2 甲片">
+              </div>
+            </div>
+            <div class="nail-item" data-slot-id="L3">
+              <button class="lock-tip" type="button" aria-label="锁定这片">✓</button>
+              <div class="move-controls" aria-label="调整顺序">
+                <button class="move-tip" type="button" data-move="-1" aria-label="向前移动">‹</button>
+                <button class="move-tip" type="button" data-move="1" aria-label="向后移动">›</button>
+              </div>
+              <div class="nail-tip photo">
+                <img class="nail-art" src="assets/nails/lalaland/v1/L3.png" alt="L3 甲片">
+              </div>
+            </div>
+            <div class="nail-item" data-slot-id="L4">
+              <button class="lock-tip" type="button" aria-label="锁定这片">✓</button>
+              <div class="move-controls" aria-label="调整顺序">
+                <button class="move-tip" type="button" data-move="-1" aria-label="向前移动">‹</button>
+                <button class="move-tip" type="button" data-move="1" aria-label="向后移动">›</button>
+              </div>
+              <div class="nail-tip photo">
+                <img class="nail-art" src="assets/nails/lalaland/v1/L4.png" alt="L4 甲片">
+              </div>
+            </div>
+            <div class="nail-item" data-slot-id="L5">
+              <button class="lock-tip" type="button" aria-label="锁定这片">✓</button>
+              <div class="move-controls" aria-label="调整顺序">
+                <button class="move-tip" type="button" data-move="-1" aria-label="向前移动">‹</button>
+                <button class="move-tip" type="button" data-move="1" aria-label="向后移动">›</button>
+              </div>
+              <div class="nail-tip photo">
+                <img class="nail-art" src="assets/nails/lalaland/v1/L5.png" alt="L5 甲片">
+              </div>
+            </div>
+          </div>
+
+          <div class="sheet-footer">
+            <div class="palette-strip" aria-label="生成色卡">
+              <span style="background:#08114a"></span>
+              <span style="background:#4b24b8"></span>
+              <span style="background:#ffd84d"></span>
+              <span style="background:#fff2c6"></span>
+              <span style="background:#17151e"></span>
+              <span style="background:#f8f4e6"></span>
+            </div>
+            <div class="design-notes">
+              <strong data-result-note-title>适合拿给美甲师沟通</strong>
+              <p data-result-note-body>主图案集中在 2-3 指，其余甲跳色。边缘和饰纹平衡，保留灵感图的颜色，但降低制作难度。</p>
+            </div>
+          </div>
+
+          <div class="result-status" aria-label="AI 处理流程">
+            <strong>AI 处理流程</strong>
+            <span>1 提取色卡</span>
+            <span>2 匹配甲型</span>
+            <span>3 生成套图</span>
+          </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
